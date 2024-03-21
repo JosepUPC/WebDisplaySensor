@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<link rel="stylesheet" type="text.css" href="/styles.css">
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="wirei2cconnections">Wire_I2C_Connections</h1>
+<h2 id="introduccion">Introduccion</h2>
+<p>In this project we see the connections between our master dispositive ESP32-S3 and our slave devices. The wire connection have at his disposition as 255 devices and with a proper code, we can find and see if one or a few of them are connected.</p>
+<h2 id="materials">Materials</h2>
+<p>We need materials to made our project with hardward components and write our code with an API software.</p>
+<ul>
+<li>
+<p>HARDWARE</p>
+<ul>
+<li><a href="https://www.espressif.com/en/products/socs/esp32-s3">Esp32_s3 microprocessor</a></li>
+<li><a href="https://www.mouser.es/ProductDetail/SparkFun/PRT-12795?qs=WyAARYrbSnZ%2FIrMB64nYgw%3D%3D&amp;mgh=1&amp;vip=1&amp;utm_id=19105062713&amp;gad_source=1&amp;gclid=CjwKCAjwte-vBhBFEiwAQSv_xW0gJk5Q_AeOIhQuhj8a5tcuOXpmRgW2tnh8LFaRfLO0b48yZx2HuBoCoLgQAvD_BwE">4 cables to connect the SDA, SCL, CMD and 5V current</a></li>
+<li><a href="https://es.rs-online.com/web/p/displays-monocromos-lcd/2109029?cm_mmc=ES-PLA-DS3A-_-google-_-CSS_ES_ES_Pmax_Test-_--_-2109029&amp;matchtype=&amp;&amp;gad_source=1&amp;gclid=CjwKCAjwte-vBhBFEiwAQSv_xR8GmSdBiJYCuiC6uNzVSChD2M4R8yw3h6rEQRmfTgchsGbAckqSLRoCzcQQAvD_BwE&amp;gclsrc=aw.ds">Slave device: LCD display, sensor of temperature, humidity</a></li>
+<li><a href="https://www.amazon.es/s?k=cable+usb-c+usb&amp;adgrpid=52965861581&amp;hvadid=275293878921&amp;hvdev=c&amp;hvlocphy=1005431&amp;hvnetw=g&amp;hvqmt=e&amp;hvrand=5206542158558476345&amp;hvtargid=kwd-312481550322&amp;tag=hydes-21&amp;ref=pd_sl_98sgs7h7db_e">USB connection calbe C type</a></li>
+</ul>
+</li>
+<li>
+<p>SOFTWARE</p>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/languages/dotnet">Visual studio Core</a></li>
+<li><a href="https://platformio.org/">Platformio</a></li>
+<li><a href="https://git-scm.com/">Git</a></li>
+<li><a href="https://github.com/">Github (Repositions)</a></li>
+<li>Libraries (Arduino.h, Wire.h)</li>
+</ul>
+</li>
+</ul>
+<h2 id="pictures">Pictures</h2>
+<p><img src="/include/libraries.png" alt="libraries"></p>
+<blockquote>
+<p>This code you can see the begining of our desire code</p>
+</blockquote>
+<h2 id="code">Code</h2>
+<p>in this point, we'll check a certain code to understand the enviroment we are playing</p>
+<pre class="hljs"><code><div>include &lt;Arduino.h&gt;
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> d 500</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pin1 21</span>
+
+<span class="hljs-function"><span class="hljs-built_in">setup</span> <span class="hljs-title">void</span><span class="hljs-params">(<span class="hljs-literal">NULL</span>)</span></span>{
+    <span class="hljs-built_in">Serial</span>.<span class="hljs-built_in">begin</span>(<span class="hljs-number">115200</span>);
+    pin.MODE(pin1,PULLUP);
+}
+<span class="hljs-function">loop <span class="hljs-title">void</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-built_in">Serial</span>.Write(pin1,<span class="hljs-literal">HIGH</span>);
+    <span class="hljs-built_in">delay</span>(<span class="hljs-number">500</span>);
+    <span class="hljs-built_in">Serial</span>.Write(pin1,<span class="hljs-literal">LOW</span>);
+    <span class="hljs-built_in">delay</span>(<span class="hljs-number">500</span>);
+}
+</div></code></pre>
+
+</body>
+</html>
